@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGenSpare Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="st
+
+pasted
+
+
+
+Upgrade to connect your tools to Claude
+
+
+
+
+
+51.33 KB •1,291 lines
+•
+Formatting may be inconsistent from source
+
+<!DOCTYPE html>
+<html lang=" en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NextGenSpare Admin Panel</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+
+            .admin-container {
+                display: flex;
+                min-height: 100vh;
+            }
+
+            /* Sidebar */
+            .sidebar {
+                width: 280px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-right: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 20px 0;
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar-header {
+                padding: 0 20px 30px;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .sidebar-header h2 {
+                color: white;
+                font-weight: 700;
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .sidebar-header p {
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 14px;
+            }
+
+            .sidebar-menu {
+                list-style: none;
+                padding: 20px 0;
+            }
+
+            .sidebar-menu li {
+                margin: 5px 0;
+            }
+
+            .sidebar-menu a {
+                display: flex;
+                align-items: center;
+                padding: 15px 20px;
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border-left: 3px solid transparent;
+            }
+
+            .sidebar-menu a:hover,
+            .sidebar-menu a.active {
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                border-left-color: #ff6b6b;
+            }
+
+            .sidebar-menu i {
+                margin-right: 12px;
+                width: 20px;
+                text-align: center;
+            }
+
+            /* Main Content */
+            .main-content {
+                flex: 1;
+                padding: 30px;
+                overflow-y: auto;
+            }
+
+            .page-header {
+                background: white;
+                padding: 25px 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: between;
+                align-items: center;
+            }
+
+            .page-header h1 {
+                color: #2d3436;
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .stat-card {
+                background: white;
+                padding: 25px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                transition: transform 0.3s ease;
+            }
+
+            .stat-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .stat-icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 15px;
+                font-size: 24px;
+                color: white;
+            }
+
+            .stat-icon.products {
+                background: linear-gradient(45deg, #667eea, #764ba2);
+            }
+
+            .stat-icon.users {
+                background: linear-gradient(45deg, #f093fb, #f5576c);
+            }
+
+            .stat-icon.orders {
+                background: linear-gradient(45deg, #4facfe, #00f2fe);
+            }
+
+            .stat-icon.revenue {
+                background: linear-gradient(45deg, #43e97b, #38f9d7);
+            }
+
+            .stat-number {
+                font-size: 32px;
+                font-weight: 700;
+                color: #2d3436;
+                margin-bottom: 5px;
+            }
+
+            .stat-label {
+                color: #636e72;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            /* Content Sections */
+            .content-section {
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+                overflow: hidden;
+            }
+
+            .section-header {
+                padding: 25px 30px;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 20px;
+                font-weight: 600;
+                color: #2d3436;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .btn-primary {
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                color: white;
+            }
+
+            .btn-success {
+                background: linear-gradient(45deg, #43e97b, #38f9d7);
+                color: white;
+            }
+
+            .btn-danger {
+                background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+                color: white;
+            }
+
+            .btn-warning {
+                background: linear-gradient(45deg, #feca57, #ff9ff3);
+                color: white;
+            }
+
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Tables */
+            .table-container {
+                padding: 30px;
+                overflow-x: auto;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+            }
+
+            th {
+                background: #f8f9fa;
+                font-weight: 600;
+                color: #2d3436;
+            }
+
+            .product-image {
+                width: 50px;
+                height: 50px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .status-badge {
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+
+            .status-active {
+                background: #d4edda;
+                color: #155724;
+            }
+
+            .status-inactive {
+                background: #f8d7da;
+                color: #721c24;
+            }
+
+            .status-pending {
+                background: #fff3cd;
+                color: #856404;
+            }
+
+            /* Forms */
+            .form-container {
+                padding: 30px;
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: #2d3436;
+                font-weight: 500;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 12px 15px;
+                border: 2px solid #eee;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: border-color 0.3s ease;
+            }
+
+            .form-control:focus {
+                outline: none;
+                border-color: #667eea;
+            }
+
+            /* Modal */
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal.active {
+                display: flex;
+            }
+
+            .modal-content {
+                background: white;
+                border-radius: 15px;
+                padding: 30px;
+                max-width: 600px;
+                width: 90%;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: #2d3436;
+            }
+
+            .close-btn {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: #636e72;
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .sidebar {
+                    transform: translateX(-100%);
+                    position: fixed;
+                    height: 100vh;
+                    z-index: 999;
+                }
+
+                .sidebar.active {
+                    transform: translateX(0);
+                }
+
+                .main-content {
+                    padding: 20px;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .form-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .hidden {
+                display: none !important;
+            }
+
+            .action-buttons {
+                display: flex;
+                gap: 10px;
+            }
+
+            .btn-sm {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>NextGenSpare</h2>
+                <p>Admin Panel</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
+                        Dashboard</a></li>
+                <li><a href="#" onclick="showSection('products')"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#" onclick="showSection('categories')"><i class="fas fa-tags"></i> Categories</a></li>
+                <li><a href="#" onclick="showSection('orders')"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="#" onclick="showSection('users')"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="#" onclick="showSection('reviews')"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="#" onclick="showSection('articles')"><i class="fas fa-newspaper"></i> Articles</a></li>
+                <li><a href="#" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-page">
+                <div class="page-header">
+                    <h1>Dashboard Overview</h1>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon products"><i class="fas fa-box"></i></div>
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Total Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon users"><i class="fas fa-users"></i></div>
+                        <div class="stat-number">3,892</div>
+                        <div class="stat-label">Total Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orders"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="stat-number">542</div>
+                        <div class="stat-label">Orders Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon revenue"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-number">₨2.4M</div>
+                        <div class="stat-label">Monthly Revenue</div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Recent Orders</h2>
+                        <a href="#" class="btn btn-primary">View All Orders</a>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD001</td>
+                                    <td>Nimal Perera</td>
+                                    <td>BMW Air Filter</td>
+                                    <td>₨15,000</td>
+                                    <td><span class="status-badge status-active">Delivered</span></td>
+                                    <td>2025-08-20</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD002</td>
+                                    <td>Shanika Silva</td>
+                                    <td>Mercedes Oil Filter</td>
+                                    <td>₨8,500</td>
+                                    <td><span class="status-badge status-pending">Pending</span></td>
+                                    <td>2025-08-21</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products" class="content-page hidden">
+                <div class="page-header">
+                    <h1>Product Management</h1>
+                    <button class="btn btn-primary" onclick="showModal('addProductModal')">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">All Products</h2>
+                        <div>
+                            <input type="text" placeholder="Search products..." class="form-control"
+                                style="width: 250px; display: inline-block;">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Brand</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTable">
+                                <tr>
+                                    <td><img src="https://via.placeholder.com/50" alt="Product" class="product-image">
+                                    </td>
+                                    <td>BMW Air Filter Series 3</td>
+                                    <td>Filters</td>
+                                    <td>BMW</td>
+                                    <td>₨15,000</td>
+                                    <td>25</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-warning btn-sm" onclick="editProduct(1)">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-danger btn-sm" onclick="deleteProduct(1)">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://via.placeholder.com/50" alt="Product" class="product-image">
+                                    </td>
+                                    <td>Mercedes Oil Filter C-Class</td>
+                                    <td>Filters</td>
+                                    <td>Mercedes</td>
+                                    <td>₨8,500</td>
+                                    <td>15</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-warning btn-sm" onclick="editProduct(2)">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-danger btn-sm" onclick="deleteProduct(2)">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div id="categories" class="content-page hidden">
+                <div class="page-header">
+                    <h1>Category Management</h1>
+                    <button class="btn btn-primary" onclick="showModal('addCategoryModal')">
+                        <i class="fas fa-plus"></i> Add Category
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">All Categories</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Icon</th>
+                                    <th>Category Name</th>
+                                    <th>Products Count</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-wind" style="font-size: 24px; color: #667eea;"></i></td>
+                                    <td>Air Conditioning</td>
+                                    <td>45</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-filter" style="font-size: 24px; color: #667eea;"></i></td>
+                                    <td>Filters</td>
+                                    <td>128</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="content-page hidden">
+                <div class="page-header">
+                    <h1>Order Management</h1>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">All Orders</h2>
+                        <div>
+                            <select class="form-control" style="width: 200px; display: inline-block;">
+                                <option>All Status</option>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Shipped</option>
+                                <option>Delivered</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Product(s)</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                    <th>Order Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD001</td>
+                                    <td>Nimal Perera</td>
+                                    <td>BMW Air Filter, Oil Filter</td>
+                                    <td>₨23,500</td>
+                                    <td><span class="status-badge status-active">Delivered</span></td>
+                                    <td>2025-08-20</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                            <button class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div id="users" class="content-page hidden">
+                <div class="page-header">
+                    <h1>User Management</h1>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">All Users</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Registration Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#USR001</td>
+                                    <td>Nimal Perera</td>
+                                    <td>nimal@email.com</td>
+                                    <td>+94 77 123 4567</td>
+                                    <td>2025-08-15</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-ban"></i> Block
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div id="reviews" class="content-page hidden">
+                <div class="page-header">
+                    <h1>Reviews Management</h1>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Customer Reviews</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Rating</th>
+                                    <th>Review</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nimal Perera</td>
+                                    <td>BMW Air Filter</td>
+                                    <td>⭐⭐⭐⭐⭐</td>
+                                    <td>Excellent service and genuine parts...</td>
+                                    <td>2025-08-20</td>
+                                    <td><span class="status-badge status-active">Approved</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-ban"></i> Hide
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Articles Section -->
+            <div id="articles" class="content-page hidden">
+                <div class="page-header">
+                    <h1>Article Management</h1>
+                    <button class="btn btn-primary" onclick="showModal('addArticleModal')">
+                        <i class="fas fa-plus"></i> Add Article
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">All Articles</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                    <th>Views</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Why OEM Parts Matter</td>
+                                    <td>Admin</td>
+                                    <td>Education</td>
+                                    <td>1,245</td>
+                                    <td>2025-08-15</td>
+                                    <td><span class="status-badge status-active">Published</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="content-page hidden">
+                <div class="page-header">
+                    <h1>System Settings</h1>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">General Settings</h2>
+                    </div>
+                    <div class="form-container">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Site Name</label>
+                                <input type="text" class="form-control" value="NextGenSpare.lk">
+                            </div>
+                            <div class="form-group">
+                                <label>Site Email</label>
+                                <input type="email" class="form-control" value="admin@nextgenspare.lk">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Phone</label>
+                                <input type="text" class="form-control" value="+94 11 123 4567">
+                            </div>
+                            <div class="form-group">
+                                <label>Currency</label>
+                                <select class="form-control">
+                                    <option selected>LKR (₨)</option>
+                                    <option>USD ($)</option>
+                                    <option>EUR (€)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Product</h3>
+                <button class="close-btn" onclick="hideModal('addProductModal')">&times;</button>
+            </div>
+            <form id="addProductForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" class="form-control" name="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <select class="form-control" name="brand" required>
+                            <option value="">Select Brand</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes">Mercedes-Benz</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Land Rover">Land Rover</option>
+                            <option value="Porsche">Porsche</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Air Conditioning">Air Conditioning</option>
+                            <option value="Bearings">Bearings</option>
+                            <option value="Control Cables">Control Cables</option>
+                            <option value="Engine">Engine</option>
+                            <option value="Filters">Filters</option>
+                            <option value="Fuel Supply System">Fuel Supply System</option>
+                            <option value="Interior and Comfort">Interior and Comfort</option>
+                            <option value="Oils and Fluids">Oils and Fluids</option>
+                            <option value="Transmission">Transmission</option>
+                            <option value="Windscreen Cleaning System">Windscreen Cleaning System</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (₨)</label>
+                        <input type="number" class="form-control" name="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Stock Quantity</label>
+                        <input type="number" class="form-control" name="stock" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Part Number</label>
+                        <input type="text" class="form-control" name="partNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Product Images</label>
+                    <input type="file" class="form-control" name="images" multiple accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" name="status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="hideModal('addProductModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal" id="addCategoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Category</h3>
+                <button class="close-btn" onclick="hideModal('addCategoryModal')">&times;</button>
+            </div>
+            <form id="addCategoryForm">
+                <div class="form-group">
+                    <label>Category Name</label>
+                    <input type="text" class="form-control" name="categoryName" required>
+                </div>
+                <div class="form-group">
+                    <label>Category Description</label>
+                    <textarea class="form-control" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Category Icon</label>
+                    <input type="file" class="form-control" name="icon" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" name="status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="hideModal('addCategoryModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Category
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Article Modal -->
+    <div class="modal" id="addArticleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Article</h3>
+                <button class="close-btn" onclick="hideModal('addArticleModal')">&times;</button>
+            </div>
+            <form id="addArticleForm">
+                <div class="form-group">
+                    <label>Article Title</label>
+                    <input type="text" class="form-control" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Article Category</label>
+                    <select class="form-control" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Education">Education</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Reviews">Reviews</option>
+                        <option value="News">News</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Article Content</label>
+                    <textarea class="form-control" name="content" rows="8" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Featured Image</label>
+                    <input type="file" class="form-control" name="image" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" name="status">
+                        <option value="draft">Draft</option>
+                        <option value="published">Published</option>
+                    </select>
+                </div>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="hideModal('addArticleModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Article
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sample data storage (in real application, this would be connected to a database)
+        let products = [
+            {
+                id: 1,
+                name: "BMW Air Filter Series 3",
+                category: "Filters",
+                brand: "BMW",
+                price: 15000,
+                stock: 25,
+                status: "active",
+                image: "https://via.placeholder.com/50"
+            },
+            {
+                id: 2,
+                name: "Mercedes Oil Filter C-Class",
+                category: "Filters",
+                brand: "Mercedes",
+                price: 8500,
+                stock: 15,
+                status: "active",
+                image: "https://via.placeholder.com/50"
+            }
+        ];
+
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-page').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            // Update active menu item
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Modal functionality
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function hideModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Product management functions
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                // In a real application, you would populate a modal with the product data
+                alert(`Editing product: ${product.name}`);
+                // You could show an edit modal here similar to the add modal
+            }
+        }
+
+        function deleteProduct(productId) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                products = products.filter(p => p.id !== productId);
+                renderProductsTable();
+                showNotification('Product deleted successfully!', 'success');
+            }
+        }
+
+        function renderProductsTable() {
+            const tbody = document.getElementById('productsTable');
+            tbody.innerHTML = '';
+
+            products.forEach(product => {
+                const row = `
+                    <tr>
+                        <td><img src="${product.image}" alt="Product" class="product-image"></td>
+                        <td>${product.name}</td>
+                        <td>${product.category}</td>
+                        <td>${product.brand}</td>
+                        <td>₨${product.price.toLocaleString()}</td>
+                        <td>${product.stock}</td>
+                        <td><span class="status-badge status-${product.status}">${product.status.charAt(0).toUpperCase() + product.status.slice(1)}</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-warning btn-sm" onclick="editProduct(${product.id})">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Form submission handlers
+        document.getElementById('addProductForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const productData = Object.fromEntries(formData.entries());
+
+            // Add new product to the array (in real app, send to server)
+            const newProduct = {
+                id: products.length + 1,
+                name: productData.productName,
+                category: productData.category,
+                brand: productData.brand,
+                price: parseInt(productData.price),
+                stock: parseInt(productData.stock),
+                status: productData.status,
+                image: "https://via.placeholder.com/50" // In real app, handle file upload
+            };
+
+            products.push(newProduct);
+            renderProductsTable();
+            hideModal('addProductModal');
+            showNotification('Product added successfully!', 'success');
+            this.reset();
+        });
+
+        document.getElementById('addCategoryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            hideModal('addCategoryModal');
+            showNotification('Category added successfully!', 'success');
+            this.reset();
+        });
+
+        document.getElementById('addArticleForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            hideModal('addArticleModal');
+            showNotification('Article added successfully!', 'success');
+            this.reset();
+        });
+
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background: ${type === 'success' ? '#43e97b' : '#ff6b6b'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 9999;
+                font-weight: 500;
+                animation: slideInRight 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            renderProductsTable();
+        });
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        // Search functionality (basic implementation)
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInputs = document.querySelectorAll('input[placeholder*="Search"]');
+            searchInputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase();
+                    const table = this.closest('.content-section').querySelector('table tbody');
+                    const rows = table.querySelectorAll('tr');
+
+                    rows.forEach(row => {
+                        const text = row.textContent.toLowerCase();
+                        row.style.display = text.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            });
+        });
+
+        // Auto-update stats (simulated)
+        function updateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const currentValue = parseInt(stat.textContent.replace(/[^\d]/g, ''));
+                const change = Math.floor(Math.random() * 10) - 5; // Random change between -5 and +5
+                const newValue = Math.max(0, currentValue + change);
+
+                if (stat.textContent.includes('₨')) {
+                    stat.textContent = `₨${(newValue / 1000).toFixed(1)}M`;
+                } else {
+                    stat.textContent = newValue.toLocaleString();
+                }
+            });
+        }
+
+        // Update stats every 30 seconds
+        setInterval(updateStats, 30000);
+    </script>
+</body>
+
+</html>
