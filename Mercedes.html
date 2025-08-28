@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGenSpare.lk - The Future of Luxury Auto Parts</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="newLogo.png" alt="Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-bar">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-buttons">
+      <button onclick="location.href='myaccount.html'">
+        <img src="user.png" alt="User Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Account </button>
+      <button onclick="location.href='myaccount.html'">
+        <img src="garage.png" alt="garage Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Garage </button>
+
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="desktop-menu">
+    <a href="home.html">Home</a>
+    <a href="Vehicle.html">Vehicles</a>
+    <a href="category.html">Categories</a>
+    <a href="articlesPage.html">Articles</a>
+    <a href="reviwes.html">Reviews</a>
+    <a href="signin.html">Sign In</a>
+    <a href="garage.html">My Garage</a>
+  </div>
+
+<!-- MERCEDES-BENZ Section -->
+<section class="section">
+  <h1>Mercedes-Benz <span class="highlight-red">Spare Parts</span></h1>
+  <p>Mercedes-Benz spare parts are engineered to deliver the performance, safety, 
+    and luxury expected from the brand. These components are crafted to fit seamlessly 
+    into each model's complex systems, preserving the vehicle's integrity, value, and 
+    driving comfort. From drivetrain to electronics and trim, genuine parts ensure top-tier
+     reliability and satisfaction.</p>
+</section>
+
+<section class="section">
+  <h1>Choose Your <span class="highlight-red">Model</span></h1>
+  <div class="vehicle-grid1">
+
+    <!-- MERCEDES-BENZ GLC-CLASS -->
+    <div class="vehicle-card">
+      <img src="glc class.jpg" alt="Mercedes-Benz GLC-Class" class="model-image">
+      <p><strong>GLC-CLASS</strong><br>06.2016 - 06.2021</p>
+      <select onchange="goToModelPage(this)">
+        <option disabled selected>SELECT YOUR CAR</option>
+        <option disabled>GLC-Class 06.2016 - 06.2021</option>
+        <option value="mercedes-glc1.html">2.0L GLC 300 / Petrol</option>
+        <option value="mercedes-glc2.html">2.1L GLC 220d / Diesel</option>
+        <option value="mercedes-glc3.html">3.0L GLC43 AMG / Petrol</option>
+
+      </select>
+    </div>
+
+    <!-- MERCEDES-BENZ GLE-CLASS -->
+    <div class="vehicle-card">
+      <img src="GLE.jpg" alt="Mercedes-Benz GLE-Class" class="model-image">
+      <p><strong>GLE-CLASS</strong><br>09.2015 - now</p>
+      <select onchange="goToModelPage(this)">
+        <option disabled selected>SELECT YOUR CAR</option>
+        <option disabled>GLE 3RD GEN 09.2015 - 02.2021 </option>
+        <option value="mercedes-gle1.html">2.1L 250D / Diesel</option>
+        <option value="mercedes-gle2.html">3.0L 350D / Diesel </option>
+        <option disabled>GLE 4TH GEN 02.2020 - now </option>
+        <option value="mercedes-gle3.html">2.0L 300D LWB / Diesel</option>
+        <option value="mercedes-gle4.html">3.0L 400D LWB / Diesel </option>
+        <option value="mercedes-gle5.html">3.0L 450 LWB / Petrol </option>
+    </select>
+    </div>
+
+    <!-- MERCEDES-BENZ R-CLASS -->
+    <div class="vehicle-card">
+      <img src="R CLASS.jpg" alt="Mercedes-Benz R-Class" class="model-image">
+      <p><strong>R-CLASS</strong><br>03.2011 - 01.2016</p>
+      <select onchange="goToModelPage(this)">
+        <option disabled selected>SELECT YOUR CAR</option>
+        <option disabled>R350 03.2011 - 01.2016</option>
+        <option value="mercedes-r350.html">3.5L / Petrol</option>
+      </select>
+    </div>
+
+    <!-- MERCEDES-BENZ SLC -->
+    <div class="vehicle-card">
+      <img src="SLC.jpg" alt="Mercedes-Benz SLC" class="model-image">
+      <p><strong>SLC</strong><br>07.2016 - now</p>
+      <select onchange="goToModelPage(this)">
+        <option disabled selected>SELECT YOUR CAR</option>
+        <option disabled>SLC (R172) 07.2016 - now</option>
+        <option value="mercedes-slc43.html">3.0L SLC43 AMG / Petrol</option>
+      </select>
+    </div>
+
+    <!-- MERCEDES-BENZ SLS AMG -->
+    <div class="vehicle-card">
+      <img src="SLS.jpg" alt="Mercedes-Benz SLS AMG" class="model-image">
+      <p><strong>SLS AMG</strong><br>03.2010 - now</p>
+      <select onchange="goToModelPage(this)">
+        <option disabled selected>SELECT YOUR CAR</option>
+        <option disabled>SLS AMG (C197) 03.2010 - now</option>
+        <option value="mercedes-sls1.html">6.2L SLS AMG / Petrol</option>
+        <option value="mercedes-sls2.html">6.2L SLS AMG GT / Petrol</option>
+        <option value="mercedes-sls3.html">6.2L SLS AMG GT / Petrol</option>
+
+    </select>
+    </div>
+
+  </div>
+</section>
+
+
+  <section class="section">
+    <h1>Welcome to <span class="highlight-red">NextGenSpare.lk</span><span class="highlight-gray">- The Future of Luxury Auto Parts</span> </h1>
+    <p>
+NextGenSpare.lk is your trusted destination for premium, 100% genuine spare parts tailored exclusively 
+for luxury vehicles including BMW, Mercedes-Benz, Land Rover, Audi, and Porsche. Designed to deliver
+ both performance and peace of mind, our platform offers a seamless browsing experience with vehicle-specific 
+ search and expertly categorized parts—ranging from engine systems and air conditioning to oils, filters,
+  and interior comfort. With transparent pricing, expert support, and secure payment options, we make it 
+  easier than ever to maintain your luxury vehicle with OEM-certified quality and unmatched reliability.</p>
+  </section>
+  
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+  <img src="robot.png" alt="Chatbot" />
+</div>
+
+<!-- Chatbot Popup Box -->
+<div class="chatbox-container" id="chatbox">
+  <div class="chatbox-header">
+    <span>Chat with Us</span>
+    <button onclick="toggleChatbot()">✖</button>
+  </div>
+  <div class="chatbox-messages" id="chat-messages">
+    <div class="bot-message">Hi! How can we help you today?</div>
+  </div>
+  <div class="chatbox-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    // Create and append user message
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Clear input
+    input.value = "";
+
+    // Simulate bot reply
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+</script>
+
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    input.value = "";
+
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+
+  // 🚀 This is the function that enables <option> redirection
+  function goToModelPage(selectElement) {
+    const url = selectElement.value;
+    if (url) {
+      window.location.href = url;
+    }
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-section logo-section">
+    <img src="newLogo.png" class="footer-logo" alt="Logo" />
+    <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>About</h4>
+    <a href="about.html">About us</a>
+    <a href="contact.html">Contact us</a>
+     <a href="Invenstor-Relations.html">Investor Relations</a>
+    <a href="suppliers.html">Suppliers Relations</a>
+    <a href="Discovery.html">Discovery Points</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Policy</h4>
+    <a href="return.html">Return Policy</a>
+    <a href="Privacy.html">Privacy Policy</a>
+    <a href="Terms.html">Terms of Use</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Useful Links</h4>
+    <a href="home.html">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#Category">Categories</a>
+    <a href="#offers">Best Offers</a>
+  </div>
+</footer>
+<div class="footer-bottom-bar">
+  © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+</div>
+</body>
+
+</html>

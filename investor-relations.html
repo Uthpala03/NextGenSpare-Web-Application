@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investor Relations | NextGenSpare.lk</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Page-scoped styles (kept minimal to respect your existing theme) */
+        .ir-hero {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            padding: 30px 20px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .ir-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 0, 0, .12);
+            color: #ff4d4d;
+            letter-spacing: .3px
+        }
+
+        .ir-kpis {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(4, 1fr)
+        }
+
+        .ir-card {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, .02)
+        }
+
+        .ir-card h3 {
+            margin: 0;
+            font-size: 14px;
+            opacity: .8
+        }
+
+        .ir-big {
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 6px
+        }
+
+        .ir-delta {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-top: 6px;
+            background: rgba(0, 200, 120, .15);
+            color: #00c878
+        }
+
+        .ir-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 1.2fr .8fr
+        }
+
+        .ir-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px
+        }
+
+        .ir-table thead th {
+            font-size: 13px;
+            text-align: left;
+            opacity: .8;
+            padding: 0 12px 6px
+        }
+
+        .ir-table tbody tr {
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .ir-table td {
+            padding: 12px 12px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .ir-table td:first-child {
+            border-left: 1px solid rgba(255, 255, 255, .08);
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            font-weight: 700
+        }
+
+        .ir-table td:last-child {
+            border-right: 1px solid rgba(255, 255, 255, .08);
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px
+        }
+
+        .ir-list {
+            display: grid;
+            gap: 12px
+        }
+
+        .ir-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .02)
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .ir-cta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .ir-cta a {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            opacity: .8;
+            padding: 10px 4px
+        }
+
+        @media (max-width: 980px) {
+
+            .ir-hero,
+            .ir-grid {
+                grid-template-columns: 1fr
+            }
+
+            .ir-kpis {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ir-kpis {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (reusing your structure) -->
+    <header class="navbar">
+        <img src="newLogo.png" alt="Logo" class="logo">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="navbar-buttons">
+            <button onclick="location.href='myaccount.html'">
+                <img src="user.png" alt="User Icon"
+                    style="width:20px; height:20px; vertical-align:middle; margin-right:5px;"> My Account
+            </button>
+            <button onclick="location.href='myaccount.html'">
+                <img src="garage.png" alt="Garage Icon"
+                    style="width:20px; height:20px; vertical-align:middle; margin-right:5px;"> My Garage
+            </button>
+        </div>
+        <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="desktop-menu">
+        <a href="home.html">Home</a>
+        <a href="home.html#vehicles">Vehicles</a>
+        <a href="home.html#category">Categories</a>
+        <a href="home.html#articles">Articles</a>
+        <a href="home.html#reviews">Reviews</a>
+        <a href="signin.html">Sign In</a>
+        <a href="garage.html">My Garage</a>
+    </div>
+
+    <main class="section">
+        <div class="breadcrumb"><a href="home.html">Home</a> › Investor Relations</div>
+
+        <section class="ir-hero">
+            <div>
+                <span class="ir-badge">INVESTOR CENTER</span>
+                <h1>NextGenSpare.lk — Building a trusted luxury auto-parts marketplace</h1>
+                <p>Welcome to our Investor Relations hub. Access financial highlights, governance documents, events, and
+                    press materials prepared for shareholders and analysts.</p>
+                <div class="ir-cta">
+                    <a href="#financials">Financials</a>
+                    <a href="#events">Events</a>
+                    <a href="#governance">Governance</a>
+                    <a href="#contacts">Contact IR</a>
+                </div>
+            </div>
+            <img src="Velar1.jpg" alt="Hero vehicle"
+                style="width:100%; border-radius:16px; border:1px solid rgba(255,255,255,.08)">
+        </section>
+
+        <div class="ir-kpis" style="margin-top:20px">
+            <div class="ir-card">
+                <h3>FY Revenue</h3>
+                <div class="ir-big">$84.2M</div><span class="ir-delta">+12.4% YoY</span>
+            </div>
+            <div class="ir-card">
+                <h3>Gross Margin</h3>
+                <div class="ir-big">31.8%</div><span class="ir-delta">+90 bps</span>
+            </div>
+            <div class="ir-card">
+                <h3>Free Cash Flow</h3>
+                <div class="ir-big">$9.7M</div><span class="ir-delta">+22% YoY</span>
+            </div>
+            <div class="ir-card">
+                <h3>Active B2B Customers</h3>
+                <div class="ir-big">12,450</div><span class="ir-delta">+1,030 QoQ</span>
+            </div>
+        </div>
+
+        <section id="financials" class="section">
+            <h2>Financial Highlights</h2>
+            <div class="ir-grid">
+                <div class="ir-card">
+                    <p style="opacity:.8">Figures shown are sample placeholders for your demo. Replace with audited
+                        results before publishing.</p>
+                    <table class="ir-table" role="table" aria-label="Financial highlights">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>FY-2</th>
+                                <th>FY-1</th>
+                                <th>FY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revenue</td>
+                                <td>$65.0M</td>
+                                <td>$74.9M</td>
+                                <td>$84.2M</td>
+                            </tr>
+                            <tr>
+                                <td>Gross Profit</td>
+                                <td>$18.6M</td>
+                                <td>$22.8M</td>
+                                <td>$26.8M</td>
+                            </tr>
+                            <tr>
+                                <td>Operating Income</td>
+                                <td>$4.2M</td>
+                                <td>$5.5M</td>
+                                <td>$7.1M</td>
+                            </tr>
+                            <tr>
+                                <td>Net Income</td>
+                                <td>$2.0M</td>
+                                <td>$3.1M</td>
+                                <td>$4.6M</td>
+                            </tr>
+                            <tr>
+                                <td>Free Cash Flow</td>
+                                <td>$6.1M</td>
+                                <td>$8.0M</td>
+                                <td>$9.7M</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ir-cta" style="margin-top:10px">
+                        <a href="#" title="Replace with real file">Annual Report (PDF)</a>
+                        <a href="#" title="Replace with real file">Quarterly Results (PDF)</a>
+                        <a href="#" title="Replace with real file">Download CSV</a>
+                    </div>
+                </div>
+                <div class="ir-card">
+                    <h3 style="margin:0 0 10px">Shareholder Resources</h3>
+                    <div class="ir-list">
+                        <div class="ir-item">
+                            <div><strong>Earnings Release</strong><br><small>Q2 FY — replace with latest</small></div><a
+                                class="tag" href="#" title="PDF placeholder">PDF</a>
+                        </div>
+                        <div class="ir-item">
+                            <div><strong>Presentation Deck</strong><br><small>Investor overview & strategy</small></div>
+                            <a class="tag" href="#" title="PPT placeholder">PPTX</a>
+                        </div>
+                        <div class="ir-item">
+                            <div><strong>Press Releases</strong><br><small>Product, partnership, and financial
+                                    news</small></div><a class="tag" href="aboutus.html">News</a>
+                        </div>
+                        <div class="ir-item">
+                            <div><strong>Regulatory Filings</strong><br><small>If applicable in your region</small>
+                            </div><span class="tag">External</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="section">
+            <h2>Events & Webcasts</h2>
+            <div class="ir-grid">
+                <div class="ir-card">
+                    <div class="ir-list">
+                        <div class="ir-item">
+                            <div><strong>Q3 Earnings Call</strong><br><small>Nov 14 — 5:00 PM (GMT+5:30)</small></div><a
+                                class="tag" href="#" title="Join placeholder">Join</a>
+                        </div>
+                        <div class="ir-item">
+                            <div><strong>Annual General Meeting</strong><br><small>Mar 28 — Colombo</small></div><a
+                                class="tag" href="#" title="Details placeholder">Details</a>
+                        </div>
+                        <div class="ir-item">
+                            <div><strong>Investor Day</strong><br><small>Jul 10 — Virtual</small></div><a class="tag"
+                                href="#" title="Agenda placeholder">Agenda</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ir-card" id="governance">
+                    <h3 style="margin:0 0 10px">Corporate Governance</h3>
+                    <ul style="margin:0 0 10px 16px">
+                        <li><strong>Board of Directors:</strong> 5 members (Independent Chair)</li>
+                        <li><strong>Committees:</strong> Audit & Risk, Compensation, Nominating & Governance</li>
+                        <li><strong>Policies:</strong> Code of Conduct, Insider Trading, Anti-Corruption (replace with
+                            your docs)</li>
+                    </ul>
+                    <div class="ir-cta">
+                        <a href="#" title="Replace with file">Governance Guidelines</a>
+                        <a href="#" title="Replace with file">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="section">
+            <h2>Contact Investor Relations</h2>
+            <div class="ir-grid">
+                <div class="ir-card">
+                    <p>For investor inquiries, please reach out to our IR team.</p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:ir@nextgenspare.lk">ir@nextgenspare.lk</a></li>
+                        <li><strong>Phone:</strong> +94 11 234 5678</li>
+                        <li><strong>Address:</strong> 100/1 Independence Ave, Colombo, Sri Lanka</li>
+                    </ul>
+                    <p style="opacity:.8">Replace with official channels before publishing.</p>
+                </div>
+                <div class="ir-card">
+                    <h3>ESG Snapshot</h3>
+                    <ul>
+                        <li><strong>Environment:</strong> Supplier packaging reduction target −30%</li>
+                        <li><strong>Social:</strong> Apprenticeship program (100+ trainees/year)</li>
+                        <li><strong>Governance:</strong> Annual third-party cybersecurity audit</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (reuse your existing markup for consistency) -->
+    <footer>
+        <div class="footer-section logo-section">
+            <img src="newLogo.png" class="footer-logo" alt="Logo" />
+            <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+        </div>
+        <div class="footer-section">
+            <h4>About</h4>
+            <a href="aboutus.html">About us</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="investor-relations.html">Investor Relations</a>
+            <a href="#">Suppliers Relations</a>
+            <a href="#">Discovery Points</a>
+        </div>
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <a href="#">Return Policy</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-section">
+            <h4>Useful Links</h4>
+            <a href="home.html">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Brands</a>
+            <a href="#">Catalogues</a>
+            <a href="#">Best Offers</a>
+        </div>
+    </footer>
+    <div class="footer-bottom-bar">
+        © <span id="y"></span> NextGenSpare.lk
+    </div>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

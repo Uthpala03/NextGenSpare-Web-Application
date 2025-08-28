@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGenSpare.lk - The Future of Luxury Auto Parts</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="newLogo.png" alt="Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-bar">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-buttons">
+      <button onclick="location.href='myaccount.php'">
+        <img src="user.png" alt="User Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+        My Account </button>
+      <button onclick="location.href='garage.html'">
+        <img src="garage.png" alt="garage Icon"
+          style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+        My Garage </button>
+
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="desktop-menu">
+    <a href="home.html">Home</a>
+    <a href="Vehicle.html">Vehicles</a>
+    <a href="category.html">Categories</a>
+    <a href="articlesPage.html">Articles</a>
+    <a href="reviwes.html">Reviews</a>
+    <a href="signin.html">Sign In</a>
+    <a href="garage.html">My Garage</a>
+  </div>
+
+  <!-- Slideshow -->
+  <div id="offers" class="slideshow-container" id="mainSlideshow">
+    <div class="mySlides fade"><img src="offer1.png"></div>
+    <div class="mySlides fade"><img src="offer2.png"></div>
+    <div class="mySlides fade"><img src="offer3.png"></div>
+    <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <!-- Sections -->
+  <section id="vehicles" class="section">
+    <h1>Search by <span class="highlight-red">Vehicle</span></h1>
+    <div class="vehicle-grid">
+      <a href="BMW.html"><img src="bmw.png" alt="BMW" />
+        <p>BMW</p>
+      </a>
+      <a href="Mercedes.html"><img src="Mercedes.jpg" alt="Mercedes" />
+        <p>MERCEDES-BENZ</p>
+      </a>
+      <a href="landRover.html"><img src="landrover.png" alt="Land Rover" />
+        <p>LAND ROVER</p>
+      </a>
+      <a href="audi.html"><img src="audi.jpg" alt="Audi" />
+        <p>AUDI</p>
+      </a>
+      <a href="porsche.html"><img src="porsche.jpg" alt="Porsche" />
+        <p>PORSCHE</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="category" class="section">
+    <h1>Our <span class="highlight-red">Category</span></h1>
+    <div class="category-grid">
+      <div class="card"><img src="air-conditioner.png" alt="Air Filter">
+        <p>AIR CONDITIONING</p>
+      </div>
+      <div class="card"><img src="bearings.png" alt="Air Filter">
+        <p>BEARINGS</p>
+      </div>
+      <div class="card"><img src="cable.png" alt="Air Filter">
+        <p>CONTROL CABLES</p>
+      </div>
+      <div class="card"><img src="engine.png" alt="Air Filter">
+        <p>ENGINE</p>
+      </div>
+      <div class="card"><img src="filter.png" alt="Air Filter">
+        <p>FILTERS</p>
+      </div>
+      <div class="card"><img src="fuel.png" alt="Air Filter">
+        <p>FUEL SUPPLY SYSTEM</p>
+      </div>
+      <div class="card"><img src="seat.png" alt="Air Filter">
+        <p>INTERIOR AND COMFORT</p>
+      </div>
+      <div class="card"><img src="oil-bottle.png" alt="Air Filter">
+        <p>OILS AND FLUIDS</p>
+      </div>
+      <div class="card"><img src="transmission.png" alt="Air Filter">
+        <p>TRANSMISSION</p>
+      </div>
+      <div class="card"><img src="windscreen.png" alt="Air Filter">
+        <p>WINDSCREEN CLEANING SYSTEM</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="articles" class="section">
+    <h1>Smart Reason to <span class="highlight-red">Choose Us</span></h1>
+    <div class="card-grid">
+      <div class="card"><img src="vehicle.png" />
+        <p>LUXURY-FOCUSED</p><small>Specializes in premium parts for high-end vehicles.</small>
+      </div>
+      <div class="card"><img src="genuine.png" />
+        <p>100% GENUINE</p><small>Only OEM or certified parts, guaranteed.</small>
+      </div>
+      <div class="card"><img src="money-insurance.png" />
+        <p>TRANSPARENT PRICING</p><small>No hidden markups. You get premium quality with fair value.</small>
+      </div>
+      <div class="card"><img src="business.png" />
+        <p>EXPERT SUPPORT</p><small>Chat with auto pros or our 24/7 AI CHATBOT.</small>
+      </div>
+      <div class="card"><img src="payment-method.png" />
+        <p>SECURE PAYMENTS</p><small>Card, transfer, or cash on delivery.</small>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Article Section -->
+
+  <section class="section">
+    <h1>Articles &<span class="highlight-red"> Reviews</span></h1>
+    <h3 style="text-align: right; padding-right: 80px;">View All </h3>
+    <div class="card-grid">
+      <div class="card"><img src="oem.jpg" />
+        <p>Why OEM Parts Matter</p><small>OEM parts ensure precise fit and original quality.
+        </small><br><br><br><button><a href="article.html">Read More</a></button>
+      </div>
+
+      <div class="card"><img src="Car_Maintenance.png" />
+        <p>Luxury Car Maintenance Tips</p><small>Luxury Vehicle Care: Top 10 Tips for Longevity
+        </small><br><br><br><button><a href="article1.html">Read More</a></button>
+      </div>
+
+      <div class="card"><img src="sp.png" />
+        <p>Top 5 Spare Brands</p><small>Top 10 Automobile Spare Part Dealers in Sri Lanka
+        </small><br><br><br><button><a href="article2.html">Read More</a></button>
+      </div>
+
+      <div class="card"><img src="sp_market.jpg" />
+        <p>Sri Lanka Auto Parts Market</p><small>Sri Lanka's auto parts sector sees strong growth.
+        </small><br><br><br><button><a href="article3.html">Read More</a></button>
+      </div>
+
+
+  
+<section id="reviews" class="section">
+    <h1 class="section-title">Customer <span class="highlight-red">Reviews</span></h1>
+    
+  
+    <div style="text-align: center; margin-bottom: 30px;">
+        <button onclick="location.href='reviews.php'" style="
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(255, 107, 107, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 107, 107, 0.3)'">
+            📝 Write a Review
+        </button>
+    </div>
+    
+    <div class="review-carousel">
+        <button class="review-btn prev" onclick="scrollReviews(-1)">&#8249;</button>
+        <div class="review-container" id="reviewContainer">
+            
+            <?php 
+            // Load reviews from database
+            include 'db.php';
+            $reviews_query = "SELECT customer_name, location, review_text, rating FROM reviews WHERE status = 'approved' ORDER BY created_at DESC LIMIT 10";
+            $reviews_result = $conn->query($reviews_query);
+            
+            if ($reviews_result && $reviews_result->num_rows > 0):
+                while($review = $reviews_result->fetch_assoc()):
+            ?>
+                <div class="review-card">
+                    <p class="review-text">"<?php echo htmlspecialchars($review['review_text']); ?>"</p>
+                    <p class="review-author">— <?php echo htmlspecialchars($review['customer_name']); ?>, <?php echo htmlspecialchars($review['location']); ?></p>
+                    <div class="stars">
+                        <?php for($i = 1; $i <= 5; $i++): ?>
+                            <?php echo $i <= $review['rating'] ? '⭐' : '☆'; ?>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            <?php 
+                endwhile;
+            else: 
+                // Fallback static reviews if no database connection or reviews
+            ?>
+                <div class="review-card">
+                    <p class="review-text">"Excellent service and genuine parts for my Audi A6."</p>
+                    <p class="review-author">— Nimal, Colombo</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"My BMW X5 got its parts in 3 days! Very fast and reliable."</p>
+                    <p class="review-author">— Shanika, Kandy</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Quality එකත් හොඳයි. Highly recommended."</p>
+                    <p class="review-author">— Kasun, Galle</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Very reliable service for my Porsche 911. Friendly staff too!"</p>
+                    <p class="review-author">— Dilini, Negombo</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Received Land Rover parts faster than I expected. Great support!"</p>
+                    <p class="review-author">— Roshan, Kurunegala</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Affordable prices for genuine BMW and Audi components."</p>
+                    <p class="review-author">— Tharushi, Matara</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Fast delivery and excellent support for Porsche parts!"</p>
+                    <p class="review-author">— Sahan, Kotte</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+            <?php endif; ?>
+            
+        </div>
+        <button class="review-btn next" onclick="scrollReviews(1)">&#8250;</button>
+    </div>
+    
+    <!-- View All Reviews Link -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="reviews.php" style="
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        " onmouseover="this.style.color='#ee5a24'" onmouseout="this.style.color='#ff6b6b'">
+            View All Reviews →
+        </a>
+    </div>
+</section>
+
+  <section class="section">
+    <h1>Welcome to <span class="highlight-red">NextGenSpare.lk</span><span class="highlight-gray">- The Future of Luxury
+        Auto Parts</span> </h1>
+    <p>
+      NextGenSpare.lk is your trusted destination for premium, 100% genuine spare parts tailored exclusively
+      for luxury vehicles including BMW, Mercedes-Benz, Land Rover, Audi, and Porsche. Designed to deliver
+      both performance and peace of mind, our platform offers a seamless browsing experience with vehicle-specific
+      search and expertly categorized parts—ranging from engine systems and air conditioning to oils, filters,
+      and interior comfort. With transparent pricing, expert support, and secure payment options, we make it
+      easier than ever to maintain your luxury vehicle with OEM-certified quality and unmatched reliability.</p>
+  </section>
+
+  <!-- Chatbot Icon -->
+  <div class="chatbot-icon" onclick="toggleChatbot()">
+    <img src="robot.png" alt="Chatbot" />
+  </div>
+
+  <!-- Chatbot Popup Box -->
+  <div class="chatbox-container" id="chatbox">
+    <div class="chatbox-header">
+      <span>Chat with Us</span>
+      <button onclick="toggleChatbot()">✖</button>
+    </div>
+    <div class="chatbox-messages" id="chat-messages">
+      <div class="bot-message">Hi! How can we help you today?</div>
+    </div>
+    <div class="chatbox-input">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChatbot() {
+      const chatbox = document.getElementById("chatbox");
+      chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (message === "") return;
+
+      const messagesContainer = document.getElementById("chat-messages");
+
+      // Create and append user message
+      const userMsg = document.createElement("div");
+      userMsg.className = "user-message";
+      userMsg.textContent = message;
+      messagesContainer.appendChild(userMsg);
+
+      // Scroll to bottom
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      // Clear input
+      input.value = "";
+
+      // Simulate bot reply
+      setTimeout(() => {
+        const botMsg = document.createElement("div");
+        botMsg.className = "bot-message";
+        botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+        messagesContainer.appendChild(botMsg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 1000);
+    }
+
+
+    // ✅ Review carousel scroll function
+    function scrollReviews(direction) {
+      const container = document.getElementById("reviewContainer");
+      const scrollAmount = 320; // Adjust based on your card width + margin
+      container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth"
+      });
+    }
+
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-section logo-section">
+      <img src="newLogo.png" class="footer-logo" alt="Logo" />
+      <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>About</h4>
+      <a href="aboutus.html">About us</a>
+      <a href="contactus.html">Contact us</a>
+      <a href="investor-relations.html">Investor Relations</a>
+      <a href="suppliers-relations.html">Suppliers Relations</a>
+      <a href="discovery-points.html">Discovery Points</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Policy</h4>
+      <a href="returnpolicypage.html">Return Policy</a>
+      <a href="Privacy.html">Privacy Policy</a>
+      <a href="Terms.html">Terms of Use</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Useful Links</h4>
+      <a href="home.html">Home</a>
+      <a href="#articles">Articles</a>
+      <a href="#vehicles">Vehicles</a>
+      <a href="#Category">Categories</a>
+      <a href="#offers">Best Offers</a>
+    </div>
+  </footer>
+  <div class="footer-bottom-bar">
+    © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+
+</html>
