@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | NextGenSpare.lk</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        .signin-container {
+            display: flex;
+            min-height: 80vh;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 65px 0;
+        }
+
+        .signin-box {
+            display: flex;
+            width: 65%;
+            max-width: 960px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .signin-left {
+            flex: 1;
+            background: #bdbebe;
+            color: #002f5f;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .signin-left img {
+            max-width: 200px;
+            margin-bottom: 0.5rem;
+        }
+
+        .signin-right {
+            flex: 1;
+            background: #fff;
+            padding: 2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signin-right h2 {
+            color: #323232;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .signin-right p {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .signin-right input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .signin-right button.continue {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #ee5757, #8a0202);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .signin-right button.continue:hover {
+            background: linear-gradient(135deg, #615f5f, #000000);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+        }
+
+        .social-login img {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .social-login img:hover {
+            transform: scale(1.1);
+        }
+
+        .or-divider {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: #777;
+            position: relative;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 1px;
+            background: #ccc;
+            top: 50%;
+        }
+
+        .or-divider::before {
+            left: 0;
+        }
+
+        .or-divider::after {
+            right: 0;
+        }
+
+        @media (max-width: 768px) {
+            .signin-box {
+                flex-direction: column;
+            }
+
+            .signin-left,
+            .signin-right {
+                width: 100%;
+            }
+
+            .signin-left {
+                text-align: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <img src="newLogo.png" alt="Logo" class="logo">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="navbar-buttons">
+            <button disabled style="opacity:0.6;">Sign Up</button>
+            <button onclick="location.href='garage.html'">My Garage</button>
+        </div>
+        <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Desktop Menu -->
+    <div class="desktop-menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#vehicles">Vehicles</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="signup.html" class="active-link">Sign Up</a>
+        <a href="garage.html">My Garage</a>
+    </div>
+
+    <!-- Sign Up Section -->
+    <section class="signin-container">
+        <div class="signin-box">
+            <div class="signin-left">
+                <img src="newLogo.png" alt="logo" />
+                <h2>
+                    <span style="color: #8a0202;">NextGenSpare.lk</span><br>
+                    <small style="font-size: 1.5rem;">The Future of Luxury Auto Parts</small>
+                </h2>
+                <p>Sign up to simplify your journey. From genuine parts to intelligent search,
+                    everything you need for your premium vehicle is just a click away.</p>
+            </div>
+
+            <div class="signin-right">
+                <h2>Sign Up</h2>
+                <p>Create your account using email</p>
+
+                <!-- Signup form -->
+                <form action="signup.php" method="POST">
+                    <input type="email" name="email" placeholder="Enter your Email" required />
+                    <input type="password" name="password" placeholder="Password" required />
+                    <input type="password" name="confirm_password" placeholder="Confirm password" required />
+                    <button type="submit" class="continue">Continue</button>
+                </form>
+
+                <div class="or-divider">OR SIGN UP WITH</div>
+                <div class="social-login">
+                    <img src="google.png" alt="Google">
+                    <img src="facebook.png" alt="Facebook">
+                    <img src="apple.png" alt="Apple">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section logo-section">
+            <img src="newLogo.png" class="footer-logo" alt="Logo" />
+            <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Contact us</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">Suppliers Relations</a>
+            <a href="#">Discovery Points</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <a href="#">Return Policy</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Useful Links</h4>
+            <a href="index.html">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Brands</a>
+            <a href="#">Catalogues</a>
+            <a href="#">Best Offers</a>
+        </div>
+    </footer>
+
+    <div class="footer-bottom-bar">
+        © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+    </div>
+</body>
+
+</html>

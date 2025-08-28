@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suppliers Relations | NextGenSpare.lk</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        .sr-hero {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            padding: 30px 20px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .sr-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0, 128, 255, .12);
+            color: #3399ff;
+        }
+
+        .sr-section {
+            margin-top: 30px;
+        }
+
+        .sr-card {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 18px;
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .sr-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .sr-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sr-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .sr-cta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .sr-cta a {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        @media (max-width: 980px) {
+            .sr-hero {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <img src="newLogo.png" alt="Logo" class="logo">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="navbar-buttons">
+            <button onclick="location.href='myaccount.html'">
+                <img src="user.png" alt="User Icon"
+                    style="width:20px; height:20px; vertical-align:middle; margin-right:5px;"> My Account
+            </button>
+            <button onclick="location.href='myaccount.html'">
+                <img src="garage.png" alt="Garage Icon"
+                    style="width:20px; height:20px; vertical-align:middle; margin-right:5px;"> My Garage
+            </button>
+        </div>
+        <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="desktop-menu">
+        <a href="home.html">Home</a>
+        <a href="home.html#vehicles">Vehicles</a>
+        <a href="home.html#category">Categories</a>
+        <a href="home.html#articles">Articles</a>
+        <a href="home.html#reviews">Reviews</a>
+        <a href="signin.html">Sign In</a>
+        <a href="garage.html">My Garage</a>
+    </div>
+
+    <main class="section">
+        <div class="breadcrumb"><a href="home.html">Home</a> › Suppliers Relations</div>
+
+        <section class="sr-hero">
+            <div>
+                <span class="sr-badge">SUPPLIER PARTNERSHIPS</span>
+                <h1>Collaborating for Excellence</h1>
+                <p>At NextGenSpare.lk, our suppliers are our partners in delivering unmatched quality and service. This
+                    page is your hub for supplier onboarding, compliance guidelines, resources, and updates.</p>
+                <div class="sr-cta">
+                    <a href="#onboarding">Onboarding</a>
+                    <a href="#compliance">Compliance</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+            <img src="business.png" alt="Suppliers Collaboration"
+                style="width:100%; border-radius:16px; border:1px solid rgba(255,255,255,.08)">
+        </section>
+
+        <section id="onboarding" class="sr-section">
+            <h2>Supplier Onboarding</h2>
+            <div class="sr-grid">
+                <div class="sr-card">
+                    <h3>Step-by-Step Process</h3>
+                    <ol>
+                        <li>Submit supplier application</li>
+                        <li>Provide company profile & certifications</li>
+                        <li>Product quality inspection</li>
+                        <li>Agreement signing & portal access</li>
+                    </ol>
+                </div>
+                <div class="sr-card">
+                    <h3>Required Documents</h3>
+                    <ul class="sr-list">
+                        <li>Business Registration Certificate</li>
+                        <li>Tax Identification Number</li>
+                        <li>OEM or Quality Certifications</li>
+                        <li>Bank Account Details</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="compliance" class="sr-section">
+            <h2>Compliance Guidelines</h2>
+            <div class="sr-grid">
+                <div class="sr-card">
+                    <h3>Quality Standards</h3>
+                    <p>All supplied products must meet OEM specifications or higher. Regular audits ensure ongoing
+                        compliance.</p>
+                </div>
+                <div class="sr-card">
+                    <h3>Ethical Practices</h3>
+                    <p>We require adherence to our Supplier Code of Conduct, covering fair labor, environmental
+                        responsibility, and anti-corruption measures.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="sr-section">
+            <h2>Supplier Resources</h2>
+            <div class="sr-grid">
+                <div class="sr-card">
+                    <h3>Portal Access</h3>
+                    <p>Login to the <a href="#">Supplier Portal</a> for purchase orders, shipment tracking, and
+                        invoicing.</p>
+                </div>
+                <div class="sr-card">
+                    <h3>Guides & Forms</h3>
+                    <ul class="sr-list">
+                        <li><a href="#">Supplier Handbook (PDF)</a></li>
+                        <li><a href="#">Quality Inspection Checklist</a></li>
+                        <li><a href="#">Invoice Submission Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="sr-section">
+            <h2>Contact Supplier Relations</h2>
+            <div class="sr-card">
+                <p><strong>Email:</strong> <a href="mailto:suppliers@nextgenspare.lk">suppliers@nextgenspare.lk</a></p>
+                <p><strong>Phone:</strong> +94 11 345 6789</p>
+                <p><strong>Address:</strong> 200 Supplier Park, Colombo, Sri Lanka</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section logo-section">
+            <img src="newLogo.png" class="footer-logo" alt="Logo" />
+            <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+        </div>
+        <div class="footer-section">
+            <h4>About</h4>
+            <a href="aboutus.html">About us</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="investor-relations.html">Investor Relations</a>
+            <a href="suppliers-relations.html">Suppliers Relations</a>
+            <a href="#">Discovery Points</a>
+        </div>
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <a href="#">Return Policy</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-section">
+            <h4>Useful Links</h4>
+            <a href="home.html">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Brands</a>
+            <a href="#">Catalogues</a>
+            <a href="#">Best Offers</a>
+        </div>
+    </footer>
+    <div class="footer-bottom-bar">
+        © <span id="y"></span> NextGenSpare.lk
+    </div>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

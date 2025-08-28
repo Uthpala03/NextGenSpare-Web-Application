@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGenSpare.lk - The Future of Luxury Auto Parts</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="product.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="newLogo.png" alt="Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-bar">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-buttons">
+      <button onclick="location.href='myaccount.html'">
+        <img src="user.png" alt="User Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Account </button>
+      <button onclick="location.href='myaccount.html'">
+        <img src="garage.png" alt="garage Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Garage </button>
+
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="desktop-menu">
+    <a href="home.html">Home</a>
+    <a href="Vehicle.html">Vehicles</a>
+    <a href="category.html">Categories</a>
+    <a href="articlesPage.html">Articles</a>
+    <a href="reviwes.html">Reviews</a>
+    <a href="signin.html">Sign In</a>
+    <a href="garage.html">My Garage</a>
+  </div>
+
+  <!-- ===== Product Wrapper: SHOCK ABSORBER BEARING ===== -->
+  <section class="product-wrapper">
+    <!-- LEFT: Gallery -->
+    <div class="product-gallery">
+      <input type="radio" name="slide" id="img1" checked hidden>
+      <input type="radio" name="slide" id="img2" hidden>
+
+      <div class="thumbnails">
+        <label for="img1">
+          <img src="b33.jpg" alt="Shock Absorber Bearing Image 1">
+        </label>
+        <label for="img2">
+          <img src="b3.jpg" alt="Shock Absorber Bearing Image 2">
+        </label>
+      </div>
+
+      <div class="main-image">
+        <img src="b33.jpg" class="slide s1" alt="Shock Absorber Bearing main 1">
+        <img src="b3.jpg" class="slide s2" alt="Shock Absorber Bearing main 2">
+      </div>
+    </div>
+
+    <!-- RIGHT: Info -->
+    <div class="product-info">
+      <h1>Shock Absorber Bearing</h1>
+      <p class="product-code">OE Part No: <strong>31306792215</strong></p>
+      <p class="category">Category: <span>Front Strut Mount Bearing</span></p>
+      <p><strong>Brand: </strong>OEM Quality (SKF / FAG / INA)</p>
+       <p><strong></strong>Warranty:</strong> 12 Months / 20,000 km</p>
+      <p class="stock in">In stock</p>
+
+      <div class="price-wrap">
+        <span class="price">LKR 6,950.00</span>
+      </div>
+
+      <div class="quantity-add">
+        <label for="qty">Quantity:</label>
+        <div class="qty-box">
+          <input id="qty" type="number" min="1" value="1" />
+        </div>
+        <button class="add-to-cart">🛒 ADD TO CART</button>
+      </div>
+
+      <div class="wishlist-compare">
+        <a href="#" class="wishlist">♡ Wishlist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-description">
+    <h2>Description</h2>
+    <p>
+      OEM-spec <strong>Front Strut Mount Bearing</strong> suitable for a wide range of vehicles. 
+      This bearing sits in the top mount and allows the MacPherson strut to pivot smoothly, 
+      improving steering feel and eliminating binding noise.
+    </p>
+
+    <div class="note">
+      <strong>Fitment:</strong> Please confirm compatibility with your vehicle using the OE reference number.  
+    </div>
+
+    <h3>Key Features:</h3>
+    <ul>
+      <li>OEM quality (SKF / FAG / INA)</li>
+      <li>Low-friction rotation for precise steering</li>
+      <li>Direct replacement; no modifications required</li>
+    </ul>
+
+    <h3>Specifications:</h3>
+    <ul>
+      <li><strong>OE Reference:</strong> 31306792215</li>
+      <li><strong>Position:</strong> Front axle – strut top bearing</li>
+      <li><strong>Condition:</strong> Brand New (OEM-spec)</li>
+      <li><strong>Price:</strong> LKR 6,950.00</li>
+      <li><strong>Warranty:</strong> 12 Months / 20,000 km</li>
+    </ul>
+  </section>
+
+
+  <section class="section">
+    <h1>Welcome to <span class="highlight-red">NextGenSpare.lk</span><span class="highlight-gray">- The Future of Luxury Auto Parts</span> </h1>
+    <p>
+NextGenSpare.lk is your trusted destination for premium, 100% genuine spare parts tailored exclusively 
+for luxury vehicles including BMW, Mercedes-Benz, Land Rover, Audi, and Porsche. Designed to deliver
+ both performance and peace of mind, our platform offers a seamless browsing experience with vehicle-specific 
+ search and expertly categorized parts—ranging from engine systems and air conditioning to oils, filters,
+  and interior comfort. With transparent pricing, expert support, and secure payment options, we make it 
+  easier than ever to maintain your luxury vehicle with OEM-certified quality and unmatched reliability.</p>
+  </section>
+  
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+  <img src="robot.png" alt="Chatbot" />
+</div>
+
+<!-- Chatbot Popup Box -->
+<div class="chatbox-container" id="chatbox">
+  <div class="chatbox-header">
+    <span>Chat with Us</span>
+    <button onclick="toggleChatbot()">✖</button>
+  </div>
+  <div class="chatbox-messages" id="chat-messages">
+    <div class="bot-message">Hi! How can we help you today?</div>
+  </div>
+  <div class="chatbox-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    // Create and append user message
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Clear input
+    input.value = "";
+
+    // Simulate bot reply
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-section logo-section">
+    <img src="newLogo.png" class="footer-logo" alt="Logo" />
+    <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>About</h4>
+    <a href="about.html">About us</a>
+    <a href="contact.html">Contact us</a>
+     <a href="Invenstor-Relations.html">Investor Relations</a>
+    <a href="suppliers.html">Suppliers Relations</a>
+    <a href="Discovery.html">Discovery Points</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Policy</h4>
+    <a href="return.html">Return Policy</a>
+    <a href="Privacy.html">Privacy Policy</a>
+    <a href="Terms.html">Terms of Use</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Useful Links</h4>
+    <a href="home.html">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#Category">Categories</a>
+    <a href="#offers">Best Offers</a>
+  </div>
+</footer>
+<div class="footer-bottom-bar">
+  © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+</div>
+</body>
+
+</html>
