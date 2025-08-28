@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NextGenSpare.lk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+        }
+
+        /* ===== HEADER WITH BACKGROUND IMAGE ===== */
+        .contact-header {
+            position: relative;
+            background: url('gwagon.jpg') center/cover no-repeat;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(242, 239, 239);
+            text-align: center;
+        }
+
+        .contact-header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(151, 129, 129, 0.5);
+            /* dark overlay */
+            z-index: 0;
+        }
+
+        .contact-header h1,
+        .contact-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media(max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CONTACT INFO ===== */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .info-box:hover {
+            background: #ffecec;
+        }
+
+        .info-box i {
+            font-size: 28px;
+            color: #d62828;
+            width: 40px;
+            text-align: center;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #d62828;
+            box-shadow: 0 0 5px rgba(214, 40, 40, 0.3);
+        }
+
+        .contact-form button {
+            background: #d62828;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #b91c1c;
+        }
+
+        /* ===== GOOGLE MAP ===== */
+        .map-section {
+            margin-top: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 60px;
+            background: #222;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #d62828;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We’re here to assist you with any inquiries about luxury auto parts and services.</p>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="contact-section">
+        <div class="contact-container">
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+94 77 123 4567</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>support@nextgenspare.lk</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Our Location</h4>
+                        <p>Colombo 07, Sri Lanka</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="contact-form" onsubmit="sendMessage(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-section" style="margin-top:40px;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63322.40310410964!2d79.8150054!3d6.9270786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2595a8282e18f%3A0xf2f92f5373c7e7b1!2sColombo!5e0!3m2!1sen!2slk!4v1702645800000!5m2!1sen!2slk"
+                width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 NextGenSpare.lk - The Future of Luxury Auto Parts</p>
+        <p><a href="index.html">⬅ Back to Home</a></p>
+    </footer>
+
+    <script>
+        function sendMessage(e) {
+            e.preventDefault();
+            alert("Thank you for contacting us! We'll get back to you soon.");
+        }
+    </script>
+</body>
+
+</html>

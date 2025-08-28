@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGenSpare.lk - The Future of Luxury Auto Parts</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="newLogo.png" alt="Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-bar">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-buttons">
+      <button onclick="location.href='myaccount.html'">
+        <img src="user.png" alt="User Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Account </button>
+      <button onclick="location.href='myaccount.html'">
+        <img src="garage.png" alt="garage Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Garage </button>
+
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="desktop-menu">
+    <a href="home.html">Home</a>
+    <a href="Vehicle.html">Vehicles</a>
+    <a href="category.html">Categories</a>
+    <a href="articlesPage.html">Articles</a>
+    <a href="reviwes.html">Reviews</a>
+    <a href="signin.html">Sign In</a>
+    <a href="garage.html">My Garage</a>
+  </div>
+
+
+<section class="section">
+  <h1>Spare parts for <span class="highlight-red">BMW X6 (F16) </span>3.0L 40dx</h1>
+  <p style="text-align: center;"><strong>Production Period:</strong> 06.2014 - now</p>
+
+  <div class="car-detail-container">
+    <!-- Left: Text Details -->
+    <div class="car-detail-text">
+      <p><strong>Engine Type:</strong> Diesel</p>
+      <p><strong>Engine codes:</strong> N57D30B</p>
+      <p><strong>Engine liters:</strong> 3.0</p>
+      <p><strong>Engine power:</strong> 313 h.p.</p>
+      <p><strong>The volume of CCM:</strong> 2993</p>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="car-detail-image">
+      <img src="x6-m.jpg" alt="BMW X6 M F86 4.4L M Image" />
+    </div>
+  </div>
+</section>
+
+
+<section id="category" class="section">
+  <h1>Our <span class="highlight-red">Category</span></h1>
+  <div class="category-grid">
+
+    <a href="air-conditioning5.html" class="card">
+      <img src="air-conditioner.png" alt="Air Conditioner">
+      <p>AIR CONDITIONING</p>
+    </a>
+
+    <a href="bearings6.html" class="card">
+      <img src="bearings.png" alt="Bearings">
+      <p>BEARINGS</p>
+    </a>
+
+    <a href="control-cables3.html" class="card">
+      <img src="cable.png" alt="Control Cables">
+      <p>CONTROL CABLES</p>
+    </a>
+
+    <a href="engine6.html" class="card">
+      <img src="engine.png" alt="Engine">
+      <p>ENGINE</p>
+    </a>
+
+    <a href="filters1.html" class="card">
+      <img src="filter.png" alt="Filters">
+      <p>FILTERS</p>
+    </a>
+
+    <a href="fuel-supply2.html" class="card">
+      <img src="fuel.png" alt="Fuel Supply System">
+      <p>FUEL SUPPLY SYSTEM</p>
+    </a>
+
+    <a href="interior-comfort5.html" class="card">
+      <img src="seat.png" alt="Interior and Comfort">
+      <p>INTERIOR AND COMFORT</p>
+    </a>
+
+    <a href="oils3.html" class="card">
+      <img src="oil-bottle.png" alt="Oils and Fluids">
+      <p>OILS AND FLUIDS</p>
+    </a>
+
+    <a href="transmission1.html" class="card">
+      <img src="transmission.png" alt="Transmission">
+      <p>TRANSMISSION</p>
+    </a>
+
+    <a href="windscreen5.html" class="card">
+      <img src="windscreen.png" alt="Windscreen Cleaning System">
+      <p>WINDSCREEN CLEANING SYSTEM</p>
+    </a>
+
+  </div>
+</section>
+
+
+  <section class="section">
+    <h1>Welcome to <span class="highlight-red">NextGenSpare.lk</span><span class="highlight-gray">- The Future of Luxury Auto Parts</span> </h1>
+    <p>
+NextGenSpare.lk is your trusted destination for premium, 100% genuine spare parts tailored exclusively 
+for luxury vehicles including BMW, Mercedes-Benz, Land Rover, Audi, and Porsche. Designed to deliver
+ both performance and peace of mind, our platform offers a seamless browsing experience with vehicle-specific 
+ search and expertly categorized parts—ranging from engine systems and air conditioning to oils, filters,
+  and interior comfort. With transparent pricing, expert support, and secure payment options, we make it 
+  easier than ever to maintain your luxury vehicle with OEM-certified quality and unmatched reliability.</p>
+  </section>
+  
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+  <img src="robot.png" alt="Chatbot" />
+</div>
+
+<!-- Chatbot Popup Box -->
+<div class="chatbox-container" id="chatbox">
+  <div class="chatbox-header">
+    <span>Chat with Us</span>
+    <button onclick="toggleChatbot()">✖</button>
+  </div>
+  <div class="chatbox-messages" id="chat-messages">
+    <div class="bot-message">Hi! How can we help you today?</div>
+  </div>
+  <div class="chatbox-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    // Create and append user message
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Clear input
+    input.value = "";
+
+    // Simulate bot reply
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-section logo-section">
+    <img src="newLogo.png" class="footer-logo" alt="Logo" />
+    <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>About</h4>
+    <a href="about.html">About us</a>
+    <a href="contact.html">Contact us</a>
+     <a href="Invenstor-Relations.html">Investor Relations</a>
+    <a href="suppliers.html">Suppliers Relations</a>
+    <a href="Discovery.html">Discovery Points</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Policy</h4>
+    <a href="return.html">Return Policy</a>
+    <a href="Privacy.html">Privacy Policy</a>
+    <a href="Terms.html">Terms of Use</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Useful Links</h4>
+    <a href="home.html">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#Category">Categories</a>
+    <a href="#offers">Best Offers</a>
+  </div>
+</footer>
+<div class="footer-bottom-bar">
+  © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+</div>
+</body>
+
+</html>

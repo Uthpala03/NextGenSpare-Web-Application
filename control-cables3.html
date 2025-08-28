@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGenSpare.lk - The Future of Luxury Auto Parts</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="newLogo.png" alt="Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-bar">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-buttons">
+      <button onclick="location.href='myaccount.html'">
+        <img src="user.png" alt="User Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Account </button>
+      <button onclick="location.href='myaccount.html'">
+        <img src="garage.png" alt="garage Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Garage </button>
+
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="desktop-menu">
+    <a href="home.html">Home</a>
+    <a href="Vehicle.html">Vehicles</a>
+    <a href="category.html">Categories</a>
+    <a href="articlesPage.html">Articles</a>
+    <a href="reviwes.html">Reviews</a>
+    <a href="signin.html">Sign In</a>
+    <a href="garage.html">My Garage</a>
+  </div>
+
+
+  <section class="section">
+  <h1>Control Cables Parts for <span class="highlight-red">Luxury Vehicle</span></h1>
+  <p style="text-align: center;"><strong>CONTROL CABLES</strong></p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem 0; align-items: flex-start;">
+      <!-- Filter Sidebar -->
+      <aside style="flex: 1; min-width: 280px; background: #f7f7f7; border-radius: 12px; padding: 1.5rem; max-width: 300px;">
+        <h2 style="text-align: left; color: #111;">Select vehicle type</h2>
+        <div style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;"></div>
+        <h3 style="text-align: left; color: #1a1a1a; font-size: 1rem; margin-top: 1.5rem;">Vehicle 
+          <span style="float: right; font-size: 0.8rem;"> <a href="control-cables1.html">Reset</a></span></h3>
+        <select id="vehicle">
+          <option selected disabled>Choose Vehicle</option>
+        </select><br/><br/>
+        <select id="model" disabled>
+          <option selected disabled>Choose Model</option>
+        </select><br/><br/>
+        <select id="year" disabled>
+          <option selected disabled>Choose Year</option>
+        </select><br/><br/>
+        <select id="verification" disabled>
+          <option selected disabled>Choose Verification</option>
+        </select><br/><br/>
+      </aside>
+
+      <!-- Category Grid -->
+      <div class="category-grid" style="flex: 3; display: flex; flex-wrap: wrap; gap: 2rem;">
+
+
+  <a href="c3.html" class="card" style="width: 260px; height: 260px; padding: 2rem; font-size: 1.1rem;">
+    <img src="seat-cable.webp" alt="Throttle & Choke Cables" style="width: 160px; height: 120px; object-fit: contain; margin-bottom: 12px;">
+    <p>Seat Cables</p>
+  </a> 
+
+        <a href="c2.html" class="card" style="width: 260px; height: 260px; padding: 2rem; font-size: 1.1rem;">
+          <img src="fuel-lid-cable.jpg" alt="Fuel Lid Cable" style="width: 160px; height: 120px; object-fit: contain; margin-bottom: 12px;">
+          <p>Fuel Lid Cable</p>
+        </a>
+        
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h1>Welcome to <span class="highlight-red">NextGenSpare.lk</span><span class="highlight-gray">- The Future of Luxury Auto Parts</span> </h1>
+    <p>
+NextGenSpare.lk is your trusted destination for premium, 100% genuine spare parts tailored exclusively 
+for luxury vehicles including BMW, Mercedes-Benz, Land Rover, Audi, and Porsche. Designed to deliver
+ both performance and peace of mind, our platform offers a seamless browsing experience with vehicle-specific 
+ search and expertly categorized parts—ranging from engine systems and air conditioning to oils, filters,
+  and interior comfort. With transparent pricing, expert support, and secure payment options, we make it 
+  easier than ever to maintain your luxury vehicle with OEM-certified quality and unmatched reliability.</p>
+  </section>
+  
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+  <img src="robot.png" alt="Chatbot" />
+</div>
+
+<!-- Chatbot Popup Box -->
+<div class="chatbox-container" id="chatbox">
+  <div class="chatbox-header">
+    <span>Chat with Us</span>
+    <button onclick="toggleChatbot()">✖</button>
+  </div>
+  <div class="chatbox-messages" id="chat-messages">
+    <div class="bot-message">Hi! How can we help you today?</div>
+  </div>
+  <div class="chatbox-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    // Create and append user message
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Clear input
+    input.value = "";
+
+    // Simulate bot reply
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-section logo-section">
+    <img src="newLogo.png" class="footer-logo" alt="Logo" />
+    <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>About</h4>
+    <a href="about.html">About us</a>
+    <a href="contact.html">Contact us</a>
+     <a href="Invenstor-Relations.html">Investor Relations</a>
+    <a href="suppliers.html">Suppliers Relations</a>
+    <a href="Discovery.html">Discovery Points</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Policy</h4>
+    <a href="return.html">Return Policy</a>
+    <a href="Privacy.html">Privacy Policy</a>
+    <a href="Terms.html">Terms of Use</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Useful Links</h4>
+    <a href="home.html">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#Category">Categories</a>
+    <a href="#offers">Best Offers</a>
+  </div>
+</footer>
+<div class="footer-bottom-bar">
+  © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+</div>
+</body>
+
+</html>
