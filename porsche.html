@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGenSpare.lk - The Future of Luxury Auto Parts</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="newLogo.png" alt="Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-bar">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-buttons">
+      <button onclick="location.href='myaccount.html'">
+        <img src="user.png" alt="User Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Account </button>
+      <button onclick="location.href='myaccount.html'">
+        <img src="garage.png" alt="garage Icon" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                 My Garage </button>
+
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="desktop-menu">
+    <a href="home.html">Home</a>
+    <a href="Vehicle.html">Vehicles</a>
+    <a href="category.html">Categories</a>
+    <a href="articlesPage.html">Articles</a>
+    <a href="reviwes.html">Reviews</a>
+    <a href="signin.html">Sign In</a>
+    <a href="garage.html">My Garage</a>
+  </div>
+
+  <!-- PORSCHE Section -->
+<section class="section">
+  <h1>Porsche <span class="highlight-red">Spare Parts</span></h1>
+  <p>Porsche spare parts are engineered to match the brand’s legacy of precision, power, and luxury. Genuine Porsche components ensure that your vehicle continues to deliver world-class performance, safety, and longevity. Whether you're maintaining a classic or upgrading a modern marvel, OEM parts provide the perfect fit and function.</p>
+</section>
+
+<section class="section">
+  <h1>Choose Your <span class="highlight-red">Model</span></h1>
+  <div class="vehicle-grid1">
+
+<!-- PORSCHE BOXSTER -->
+<div class="vehicle-card">
+  <img src="boxster.jpg" alt="Porsche Boxster" class="model-image">
+  <p><strong>BOXSTER</strong><br>04.2012 - now</p>
+  <select onchange="goToModelPage(this)">
+    <option disabled selected>SELECT YOUR CAR</option>
+    <option disabled>Boxster (981) 04.2012 - now</option>
+    <option value="porsche-boxster1.html">2.7L / Petrol</option>
+    <option value="porsche-boxster2.html">3.4L / Petrol / 315 h.p.</option>
+    <option value="porsche-boxster3.html">3.4L / Petrol / 330 h.p.</option>
+</select>
+</div>
+
+<!-- PORSCHE CAYENNE (Diesel) -->
+<div class="vehicle-card">
+  <img src="cayenne.jpg" alt="Porsche Cayenne Diesel" class="model-image">
+  <p><strong>CAYENNE </strong><br>06.2010 - now</p>
+  <select onchange="goToModelPage(this)">
+    <option disabled selected>SELECT YOUR CAR</option>
+    <option disabled>Cayenne Diesel 06.2010 - now</option>
+    <option value="porsche-cayenne1.html">3.0L / Diesel / 239 h.p.</option>
+    <option value="porsche-cayenne2.html">3.0L / Diesel / 211 h.p.</option>
+    <option value="porsche-cayenne3.html">3.0L / Diesel / 245 h.p.</option>
+    <option value="porsche-cayenne4.html">4.2L / Diesel</option>
+</select>
+</div>
+
+<!-- PORSCHE CAYMAN -->
+<div class="vehicle-card">
+  <img src="cayman.jpg" alt="Porsche Cayman" class="model-image">
+  <p><strong>CAYMAN</strong><br>03.2013 - now</p>
+  <select onchange="goToModelPage(this)">
+    <option disabled selected>SELECT YOUR CAR</option>
+    <option disabled>Cayman (981) 03.2013 - now</option>
+    <option value="porsche-cayman1.html">3.4L / Petrol / 325 h.p.</option>
+    <option value="porsche-cayman2.html">3.4L / Petrol / 340 h.p.</option>
+  </select>
+</div>
+
+<!-- PORSCHE MACAN -->
+<div class="vehicle-card">
+  <img src="Macan.jpg" alt="Porsche Macan" class="model-image">
+  <p><strong>MACAN</strong><br>02.2014 - now</p>
+  <select onchange="goToModelPage(this)">
+    <option disabled selected>SELECT YOUR CAR</option>
+    <option disabled>Macan 02.2014 - now</option>
+    <option value="porsche-macan1.html">3.0L S / Diesel / 211 h.p.</option>
+    <option value="porsche-macan2.html">3.0L S / Diesel / 258 h.p.</option>
+    <option value="porsche-macan3.html">3.0L S / Diesel / 250 h.p.</option>
+  </select>
+</div>
+
+</div>
+</section>
+
+
+  <section class="section">
+    <h1>Welcome to <span class="highlight-red">NextGenSpare.lk</span><span class="highlight-gray">- The Future of Luxury Auto Parts</span> </h1>
+    <p>
+NextGenSpare.lk is your trusted destination for premium, 100% genuine spare parts tailored exclusively 
+for luxury vehicles including BMW, Mercedes-Benz, Land Rover, Audi, and Porsche. Designed to deliver
+ both performance and peace of mind, our platform offers a seamless browsing experience with vehicle-specific 
+ search and expertly categorized parts—ranging from engine systems and air conditioning to oils, filters,
+  and interior comfort. With transparent pricing, expert support, and secure payment options, we make it 
+  easier than ever to maintain your luxury vehicle with OEM-certified quality and unmatched reliability.</p>
+  </section>
+  
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+  <img src="robot.png" alt="Chatbot" />
+</div>
+
+<!-- Chatbot Popup Box -->
+<div class="chatbox-container" id="chatbox">
+  <div class="chatbox-header">
+    <span>Chat with Us</span>
+    <button onclick="toggleChatbot()">✖</button>
+  </div>
+  <div class="chatbox-messages" id="chat-messages">
+    <div class="bot-message">Hi! How can we help you today?</div>
+  </div>
+  <div class="chatbox-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    // Create and append user message
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Clear input
+    input.value = "";
+
+    // Simulate bot reply
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+</script>
+<script>
+  function toggleChatbot() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const messagesContainer = document.getElementById("chat-messages");
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    input.value = "";
+
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "Thanks for your message. We'll get back shortly!";
+      messagesContainer.appendChild(botMsg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+
+  // 🚀 This is the function that enables <option> redirection
+  function goToModelPage(selectElement) {
+    const url = selectElement.value;
+    if (url) {
+      window.location.href = url;
+    }
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-section logo-section">
+    <img src="newLogo.png" class="footer-logo" alt="Logo" />
+    <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>About</h4>
+    <a href="about.html">About us</a>
+    <a href="contact.html">Contact us</a>
+     <a href="Invenstor-Relations.html">Investor Relations</a>
+    <a href="suppliers.html">Suppliers Relations</a>
+    <a href="Discovery.html">Discovery Points</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Policy</h4>
+    <a href="return.html">Return Policy</a>
+    <a href="Privacy.html">Privacy Policy</a>
+    <a href="Terms.html">Terms of Use</a>
+  </div>
+
+  <div class="footer-section">
+    <h4>Useful Links</h4>
+    <a href="home.html">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#Category">Categories</a>
+    <a href="#offers">Best Offers</a>
+  </div>
+</footer>
+<div class="footer-bottom-bar">
+  © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+</div>
+</body>
+
+</html>

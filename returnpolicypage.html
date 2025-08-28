@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Return Policy - NextGenSpare.lk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #c0392b;
+        }
+
+        .navbar-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar-buttons button {
+            padding: 10px 15px;
+            background: transparent;
+            color: white;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .navbar-buttons button:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+        }
+
+        .desktop-menu {
+            display: flex;
+            justify-content: center;
+            background: #34495e;
+            padding: 1rem 0;
+            gap: 2rem;
+        }
+
+        .desktop-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .desktop-menu a:hover {
+            background: #e74c3c;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        .page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-red {
+            color: #e74c3c;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            margin-bottom: 3rem;
+        }
+
+        .policy-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .policy-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .policy-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-section h4 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: #bdc3c7;
+            font-style: italic;
+        }
+
+        .footer-bottom-bar {
+            background: #1a252f;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .search-bar {
+                width: calc(100% - 80px);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .desktop-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #34495e;
+                padding: 1rem;
+                z-index: 1000;
+            }
+
+            .desktop-menu.show {
+                display: flex;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <img src="newLogo.png" alt="Logo" class="logo">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="navbar-buttons">
+            <button onclick="location.href='myaccount.php'">
+                <img src="user.png" alt="User Icon"
+                    style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                My Account
+            </button>
+            <button onclick="location.href='myaccount.html'">
+                <img src="garage.png" alt="garage Icon"
+                    style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                My Garage
+            </button>
+        </div>
+        <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="desktop-menu">
+        <a href="home.html">Home</a>
+        <a href="Vehicle.html">Vehicles</a>
+        <a href="category.html">Categories</a>
+        <a href="articlesPage.html">Articles</a>
+        <a href="reviwes.html">Reviews</a>
+        <a href="signin.html">Sign In</a>
+        <a href="garage.html">My Garage</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Return <span class="highlight-red">Policy</span></h1>
+            <p>We want you to be completely satisfied with your luxury auto parts purchase. Please review our
+                comprehensive return policy below.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Return Policy Overview</h2>
+            <p>At NextGenSpare.lk, we understand the importance of getting the right parts for your luxury vehicle. We
+                offer a comprehensive return policy to ensure your complete satisfaction with every purchase.</p>
+
+            <div class="highlight-box">
+                <h4>Important Notice</h4>
+                <p>All returns must be initiated within <strong>30 days</strong> of purchase and must meet our return
+                    conditions outlined below.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>Eligible Returns</h2>
+            <h3>What Can Be Returned:</h3>
+            <ul>
+                <li>Unused parts in original packaging</li>
+                <li>Parts with manufacturing defects</li>
+                <li>Incorrect parts shipped due to our error</li>
+                <li>Parts that don't match the original specifications</li>
+                <li>Damaged parts received during shipping</li>
+            </ul>
+
+            <h3>Return Conditions:</h3>
+            <ul>
+                <li>Parts must be in original, unopened packaging</li>
+                <li>All original labels, tags, and documentation must be intact</li>
+                <li>Parts must be in resalable condition</li>
+                <li>Original receipt or order confirmation required</li>
+                <li>Parts must not show signs of installation or use</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Non-Returnable Items</h2>
+            <p>For safety and hygiene reasons, the following items cannot be returned:</p>
+            <ul>
+                <li>Fluids and oils (engine oil, brake fluid, coolant, etc.)</li>
+                <li>Filters that have been opened or used</li>
+                <li>Electrical parts that have been installed</li>
+                <li>Custom-ordered or special-request parts</li>
+                <li>Parts ordered more than 6 months ago</li>
+                <li>Consumable items (wipers, bulbs, fuses)</li>
+                <li>Interior items that have been installed</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Return Process</h2>
+
+            <h3>Step 1: Contact Us</h3>
+            <p>Contact our customer service team within 30 days of purchase. Provide your order number and reason for
+                return.</p>
+
+            <h3>Step 2: Return Authorization</h3>
+            <p>We'll provide you with a Return Merchandise Authorization (RMA) number and return instructions.</p>
+
+            <h3>Step 3: Package and Ship</h3>
+            <p>Securely package the item in its original packaging and include the RMA number. Ship the item back to our
+                designated address.</p>
+
+            <h3>Step 4: Inspection and Refund</h3>
+            <p>Once we receive and inspect the returned item, we'll process your refund within 5-7 business days.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Refund Information</h2>
+
+            <h3>Refund Methods:</h3>
+            <ul>
+                <li>Original payment method (credit card, bank transfer)</li>
+                <li>Store credit for future purchases</li>
+                <li>Exchange for correct part (if applicable)</li>
+            </ul>
+
+            <h3>Refund Timeline:</h3>
+            <p>Refunds are processed within 5-7 business days after we receive and inspect the returned item. The time
+                it takes for the refund to appear in your account depends on your bank or credit card company.</p>
+
+            <div class="highlight-box">
+                <h4>Shipping Costs</h4>
+                <p>Original shipping costs are non-refundable unless the return is due to our error or a defective
+                    product. Customer is responsible for return shipping costs unless otherwise specified.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>Exchanges</h2>
+            <p>We offer exchanges for:</p>
+            <ul>
+                <li>Wrong parts shipped due to our error</li>
+                <li>Defective or damaged parts</li>
+                <li>Size or specification changes (subject to availability)</li>
+            </ul>
+            <p>Exchange requests must be made within 30 days of purchase and follow the same return process outlined
+                above.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Warranty Claims</h2>
+            <p>For warranty-related issues:</p>
+            <ul>
+                <li>OEM parts come with manufacturer warranty</li>
+                <li>Contact us immediately if you receive a defective part</li>
+                <li>Warranty claims are processed separately from returns</li>
+                <li>Installation-related issues may void warranty</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Special Circumstances</h2>
+
+            <h3>Bulk Orders:</h3>
+            <p>Orders over LKR 100,000 may have special return conditions. Contact our sales team for details.</p>
+
+            <h3>International Orders:</h3>
+            <p>International customers are responsible for return shipping costs and any customs fees.</p>
+
+            <h3>Emergency Orders:</h3>
+            <p>Rush or emergency orders may have modified return policies due to expedited processing.</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Need Help with Returns?</h3>
+            <div class="contact-details">
+                <div>
+                    <h4>Customer Service</h4>
+                    <p>Email: returns@nextgenspare.lk</p>
+                    <p>Phone: +94 11 234 5678</p>
+                    <p>Hours: Mon-Sat 9:00 AM - 6:00 PM</p>
+                </div>
+                <div>
+                    <h4>Return Address</h4>
+                    <p>NextGenSpare.lk Returns Department</p>
+                    <p>123 Luxury Auto Parts Street</p>
+                    <p>Colombo 03, Sri Lanka</p>
+                    <p>Include RMA number on package</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section logo-section">
+            <img src="newLogo.png" class="footer-logo" alt="Logo" />
+            <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>About</h4>
+            <a href="aboutus.html">About us</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="investor-relations.html">Investor Relations</a>
+            <a href="suppliers-relations.html">Suppliers Relations</a>
+            <a href="discovery-points.html">Discovery Points</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <a href="return.html">Return Policy</a>
+            <a href="Privacy.html">Privacy Policy</a>
+            <a href="Terms.html">Terms of Use</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Useful Links</h4>
+            <a href="home.html">Home</a>
+            <a href="#articles">Articles</a>
+            <a href="#vehicles">Vehicles</a>
+            <a href="#Category">Categories</a>
+            <a href="#offers">Best Offers</a>
+        </div>
+    </footer>
+
+    <div class="footer-bottom-bar">
+        © 2025 NextGenSpare.lk (v7.3.7 build 250715.1409)
+    </div>
+
+    <script>
+        // Mobile menu toggle functionality
+        function toggleMenu() {
+            document.querySelector('.desktop-menu').classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>
