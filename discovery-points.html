@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discovery Points | NextGenSpare.lk</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        .dp-hero {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            padding: 30px 20px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .dp-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 120, 0, .12);
+            color: #ff9a3c
+        }
+
+        .dp-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 1.2fr .8fr
+        }
+
+        .dp-card {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 18px;
+            background: rgba(255, 255, 255, .02)
+        }
+
+        .dp-list {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .dp-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, .02)
+        }
+
+        .dp-cta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .dp-cta a,
+        .dp-cta button {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            background: transparent;
+            color: inherit;
+            cursor: pointer
+        }
+
+        .dp-search {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .dp-search input,
+        .dp-search select {
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .02);
+            color: inherit;
+            min-width: 200px
+        }
+
+        .dp-map {
+            width: 100%;
+            height: 380px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .12)
+        }
+
+        @media (max-width:980px) {
+
+            .dp-hero,
+            .dp-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <img src="newLogo.png" alt="Logo" class="logo">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="navbar-buttons">
+            <button onclick="location.href='myaccount.html'">
+                <img src="user.png" alt="User Icon"
+                    style="width:20px;height:20px;vertical-align:middle;margin-right:5px;"> My Account
+            </button>
+            <button onclick="location.href='myaccount.html'">
+                <img src="garage.png" alt="Garage Icon"
+                    style="width:20px;height:20px;vertical-align:middle;margin-right:5px;"> My Garage
+            </button>
+        </div>
+        <div class="menu-toggle" onclick="document.querySelector('.desktop-menu').classList.toggle('show')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="desktop-menu">
+        <a href="home.html">Home</a>
+        <a href="home.html#vehicles">Vehicles</a>
+        <a href="home.html#category">Categories</a>
+        <a href="home.html#articles">Articles</a>
+        <a href="home.html#reviews">Reviews</a>
+        <a href="signin.html">Sign In</a>
+        <a href="garage.html">My Garage</a>
+    </div>
+
+    <main class="section">
+        <div class="breadcrumb"><a href="home.html">Home</a> › Discovery Points</div>
+
+        <section class="dp-hero">
+            <div>
+                <span class="dp-badge">PICKUP & SERVICE NETWORK</span>
+                <h1>Find Your Nearest Discovery Point</h1>
+                <p>Visit a Discovery Point to pick up online orders, get fitment guidance, and access trusted partner
+                    services. Use the locator to find a point near you.</p>
+                <div class="dp-cta">
+                    <a href="#locator">Open Locator</a>
+                    <a href="#partners">Our Partners</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#become">Become a Partner</a>
+                </div>
+            </div>
+            <img src="location.png" alt="Map illustration"
+                style="width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.08)">
+        </section>
+
+        <!-- Locator -->
+        <section id="locator" class="section">
+            <h2>Store Locator</h2>
+            <div class="dp-grid">
+                <div class="dp-card">
+                    <div class="dp-search">
+                        <input id="searchText" type="text" placeholder="Search city or address…" />
+                        <select id="province">
+                            <option value="">All Provinces</option>
+                            <option>Western</option>
+                            <option>Central</option>
+                            <option>Northern</option>
+                            <option>Eastern</option>
+                            <option>North Western</option>
+                            <option>North Central</option>
+                            <option>Uva</option>
+                            <option>Sabaragamuwa</option>
+                            <option>Southern</option>
+                        </select>
+                        <select id="service">
+                            <option value="">Any Service</option>
+                            <option>Pickup Point</option>
+                            <option>Workshop/Fitment</option>
+                            <option>Returns Drop-off</option>
+                        </select>
+                        <button onclick="filterPoints()">Search</button>
+                    </div>
+                    <ul id="results" class="dp-list" style="margin-top:14px"></ul>
+                </div>
+                <div class="dp-card">
+                    <div class="dp-map" id="mapBox">
+                        <!-- Map placeholder; replace iframe src with your own Google Map or Mapbox embed -->
+                        <iframe title="Map" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7921.784!2d79.8612!3d6.9271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2596bdf!2sColombo!5e0!3m2!1sen!2slk!4v0000000000">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner list -->
+        <section id="partners" class="section">
+            <h2>Featured Discovery Partners</h2>
+            <div class="dp-grid">
+                <div class="dp-card">
+                    <h3>Colombo – Independence Ave</h3>
+                    <p><strong>Services:</strong> Pickup Point, Returns Drop-off</p>
+                    <p><strong>Hours:</strong> Mon–Sat 9:00–18:00</p>
+                    <p><strong>Contact:</strong> +94 11 234 5678</p>
+                    <span class="tag">Same-day pickup</span>
+                </div>
+                <div class="dp-card">
+                    <h3>Kandy – City Center</h3>
+                    <p><strong>Services:</strong> Pickup Point, Workshop/Fitment</p>
+                    <p><strong>Hours:</strong> Mon–Sat 9:00–17:30</p>
+                    <p><strong>Contact:</strong> +94 81 222 3344</p>
+                    <span class="tag">Fitment support</span>
+                </div>
+                <div class="dp-card">
+                    <h3>Galle – Fort Road</h3>
+                    <p><strong>Services:</strong> Pickup Point</p>
+                    <p><strong>Hours:</strong> Tue–Sun 10:00–18:00</p>
+                    <p><strong>Contact:</strong> +94 91 555 7788</p>
+                    <span class="tag">Coastal region</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="dp-grid">
+                <div class="dp-card">
+                    <h3>What is a Discovery Point?</h3>
+                    <p>A local partner location where you can pick up online orders, get basic fitment guidance, and
+                        drop off returns.</p>
+                </div>
+                <div class="dp-card">
+                    <h3>Can I pay on pickup?</h3>
+                    <p>Yes, select “Cash on Pickup” at checkout where available at your chosen point.</p>
+                </div>
+                <div class="dp-card">
+                    <h3>How long will my order be held?</h3>
+                    <p>Orders are held for 5 business days unless extended via support.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Become a partner -->
+        <section id="become" class="section">
+            <h2>Become a Discovery Partner</h2>
+            <div class="dp-grid">
+                <div class="dp-card">
+                    <p>Have a workshop or retail space and want to host pickups? Join our partner network.</p>
+                    <div class="dp-cta">
+                        <a href="#" title="Replace with actual form">Apply Online</a>
+                        <a href="#" title="Replace with PDF">Partner Handbook (PDF)</a>
+                    </div>
+                </div>
+                <div class="dp-card">
+                    <h3>Minimum Requirements</h3>
+                    <ul class="dp-list">
+                        <li>Secure storage for 20–50 parcels</li>
+                        <li>Open at least 6 days/week</li>
+                        <li>Staffed point of contact</li>
+                        <li>Clean, customer-friendly space</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section logo-section">
+            <img src="newLogo.png" class="footer-logo" alt="Logo" />
+            <p class="footer-tagline">The Future of Luxury Auto Parts.</p>
+        </div>
+        <div class="footer-section">
+            <h4>About</h4>
+            <a href="aboutus.html">About us</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="investor-relations.html">Investor Relations</a>
+            <a href="suppliers-relations.html">Suppliers Relations</a>
+            <a href="discovery-points.html">Discovery Points</a>
+        </div>
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <a href="#">Return Policy</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-section">
+            <h4>Useful Links</h4>
+            <a href="home.html">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Brands</a>
+            <a href="#">Catalogues</a>
+            <a href="#">Best Offers</a>
+        </div>
+    </footer>
+    <div class="footer-bottom-bar">© <span id="y"></span> NextGenSpare.lk</div>
+
+    <script>
+        // Demo dataset of points (replace with live API later)
+        const POINTS = [
+            { name: "Independence Ave Pickup", city: "Colombo", province: "Western", service: ["Pickup Point", "Returns Drop-off"], phone: "+94 11 234 5678", hours: "Mon–Sat 9:00–18:00" },
+            { name: "Kandy City Center Workshop", city: "Kandy", province: "Central", service: ["Pickup Point", "Workshop/Fitment"], phone: "+94 81 222 3344", hours: "Mon–Sat 9:00–17:30" },
+            { name: "Galle Fort Pickup", city: "Galle", province: "Southern", service: ["Pickup Point"], phone: "+94 91 555 7788", hours: "Tue–Sun 10:00–18:00" },
+        ];
+
+        function render(points) {
+            const ul = document.getElementById("results");
+            ul.innerHTML = "";
+            points.forEach(p => {
+                const li = document.createElement("li");
+                li.className = "dp-item";
+                li.innerHTML = `
+          <div>
+            <strong>${p.name}</strong><br>
+            <small>${p.city}, ${p.province}</small><br>
+            <small>${p.hours}</small>
+          </div>
+          <div style="text-align:right">
+            <div class="tag">${p.service.join(" • ")}</div><br>
+            <small>${p.phone}</small>
+          </div>`;
+                ul.appendChild(li);
+            });
+            if (points.length === 0) {
+                ul.innerHTML = '<li class="dp-item"><em>No matching locations found.</em></li>';
+            }
+        }
+
+        function filterPoints() {
+            const q = document.getElementById("searchText").value.toLowerCase();
+            const prov = document.getElementById("province").value;
+            const svc = document.getElementById("service").value;
+            const res = POINTS.filter(p => {
+                const matchesQ = !q || [p.name, p.city, p.province].join(" ").toLowerCase().includes(q);
+                const matchesProv = !prov || p.province === prov;
+                const matchesSvc = !svc || p.service.includes(svc);
+                return matchesQ && matchesProv && matchesSvc;
+            });
+            render(res);
+        }
+
+        document.getElementById("y").textContent = new Date().getFullYear();
+        render(POINTS);
+    </script>
+</body>
+
+</html>
